@@ -43,10 +43,15 @@ export default class Game extends Component {
           />
           <CurrentWord
             // TODO 1): Pass CurrentWord props
+            currentWord={'Rose'}
+            label={'current Word'} 
           />
           <Button
             // TODO 1): Pass Button Prop
+            label={'im a submitting button'}
+
             // TODO 4): Pass Button Callback
+            
           />
         </div>
 
