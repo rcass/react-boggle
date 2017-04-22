@@ -10,7 +10,7 @@ const Button = (props) => {
     <button className="button"
       // TODO 4) : Handle on click callback
       // onClick={()=>alert('button clicked!')} // Testing if onclick works
-      onClick={()=>alert('handleSubmit')}
+      onClick={()=> handleSubmit() }
 
     >
       {/* TODO 1): Render button label */}
