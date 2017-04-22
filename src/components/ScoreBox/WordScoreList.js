@@ -6,13 +6,17 @@ const {wordScoreList} = props
 const words = Object.keys(wordScoreList)
 const scores = Object.values(wordScoreList)
 
-const wordList = words.map(function(word){
-  return (<li>{word}</li>)
+const wordList = words.map(function(word, index){
+  return (<li key={index}>{word}</li>)
 })
 
-const scoreList = scores.map(function(score){
-  return (<li>{score}</li>)
+const scoreList = scores.map(function(score, index){
+  return (<li key={index}>{score}</li>)
 })
+
+const totalScore = scores.reduce(function(totalScore, currentScore){
+  return totalScore + currentScore
+}, 0 );
 
   return (
     <div>
@@ -30,6 +34,7 @@ const scoreList = scores.map(function(score){
       </div>
       <TotalScore
         // TODO: 3) Pass TotalScore props
+        totalScore = {totalScore}
       />
     </div>
   );
