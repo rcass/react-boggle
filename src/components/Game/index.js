@@ -48,7 +48,7 @@ export default class Game extends Component {
           />
           <Button
             // TODO 1): Pass Button Prop
-            label={'im a submitting button'}
+            label={'submit word'}
 
             // TODO 4): Pass Button Callback
             
