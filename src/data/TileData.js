@@ -10,6 +10,6 @@ export default class TileData {
   // Returns a new TileData instance with the same properties
   clone() {
     // TODO 0): TileData clone function
-    new TileData(this.letter, this.rowId, this.columnId, this.selected)
+    return new TileData(this.letter, this.rowId, this.columnId, this.selected)
   }
 }

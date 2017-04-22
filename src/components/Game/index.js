@@ -20,17 +20,37 @@ export default class Game extends Component {
     // TODO 4): Change data props to states
     this.state = {
       board: this.initBoard,
+      currentWord: '',
+      wordScoreList: {}
     };
   }
 
   // Tile Clicked
   handleClick(rowId, columnId) {
     // TODO 4): Handle tile click to select / unselect tile.
+    //alert(rowId + '' + columnId)
+    const letter = this.state.board[rowId][columnId].letter
+    //alert(letter)
+
+    const newBoard = copyBoard(this.state.board)
+    const selected = newBoard[rowId][columnId].selected
+    
+    newBoard[rowId][columnId].selected = !selected;
+
+    let newWord;
+    if(!selected){
+      newWord = this.state.currentWord.concat(letter)
+    }else {
+      newWord = this.state.currentWord.slice(0, -1)
+    }
+    
+    this.setState({currentWord: newWord, board: newBoard})
   }
 
   // Adds Current Word to the Word List
   handleSubmit(word) {
     // TODO 4): Check if Current Word is valid
+
   }
 
   render() {
@@ -40,18 +60,20 @@ export default class Game extends Component {
           <Board
             board={this.state.board}
             // TODO 4): Pass Board onClick callback as props
+            handleClick={(rowId, columnId)=>this.handleClick(rowId, columnId)}
           />
           <CurrentWord
             // TODO 1): Pass CurrentWord props
-            currentWord={'Rose'}
+            currentWord={this.state.currentWord}
             label={'current Word'} 
           />
           <Button
             // TODO 1): Pass Button Prop
             label={'submit word'}
+            handleSubmit={()=>this.handleSubmit(this.state.currentWord)}
 
             // TODO 4): Pass Button Callback
-            
+    
           />
         </div>
 

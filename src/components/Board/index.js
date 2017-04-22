@@ -4,7 +4,7 @@ import './Board.css';
 
 const Board = props => {
   // TODO 1): Destructure Board props
-  const { board } = props;
+  const { board, handleClick } = props;
   return (
     <div className="orange-area">
     {/* 2D array for the board, see gameUtils */}
@@ -21,6 +21,7 @@ const Board = props => {
                   selected={tile.selected}
                   key={index}
                   // TODO 4): Pass callback function props when user clicks on Tile
+                  handleClick={()=>handleClick(tile.rowId, tile.columnId)}
                 />
               );
             })}
