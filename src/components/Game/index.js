@@ -57,8 +57,11 @@ export default class Game extends Component {
 
         <ScoreBox
           // TODO 2): Pass ScoreBox Props
+          wordScoreList={{'hello': 3, 'react': 3, 'vancouver': 6, 'giraffe': 6}}
+
           // TODO 3): Calculate Score using reduce
         />
+        
         {/* Makes Board and ScoreBox be side by side */}
         <div className="clear" />
 
